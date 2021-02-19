@@ -23,7 +23,7 @@ kubectl create -f minicube-ip-config.yaml
 kubectl delete -f minicube-ip-config.yaml
 
 ## Get configs
-kubectl get configmaps metallb-system -o yaml
+192.168.49.2
 
 ### Remove Load Balancer
 kubectl delete svc nodejs-deployment
