@@ -12,3 +12,9 @@ kubectl delete -f kuberbets-deploy.yaml
 
 ### Get the Minicube IP
 minikube ip
+
+### External IP Expose 
+kubectl create -f minicube-ip-config.yaml
+
+### Remove Loadblancer
+kubectl delete svc nodejs-deployment
