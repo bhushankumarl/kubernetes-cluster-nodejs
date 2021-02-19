@@ -1,6 +1,14 @@
 # kubernetes-cluster-nodejs
 
-kubectl create -f kuberbets-deploy.yaml
-
+### Tagging the Repos
 docker tag node-server bhushankumar3/kubernetes-cluster-nodejs
 docker push bhushankumar3/kubernetes-cluster-nodejs:latest
+
+### Create the deployment
+kubectl create -f kuberbets-deploy.yaml
+
+### Delete the deployment
+kubectl delete -f kuberbets-deploy.yaml
+
+### Get the Minicube IP
+minikube ip
