@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: node-sample
-          image: bhushankumar3/kubernetes-cluster-nodejs
+          image: bhushankumar3/kubernetes-cluster-nodejs:latest
           ports:
             - containerPort: 3000
