@@ -15,15 +15,18 @@ kubectl get deploy,po
 
 ### Get the Minicube IP
 minikube ip
+#192.168.49.2
 
-### Create a IP Config 
-kubectl create -f minicube-ip-config.yaml
+### Install MetaLab
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.9.3/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.9.3/manifests/metallb.yaml # On the first install only
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
 ### Remove a IP Config 
 kubectl delete -f minicube-ip-config.yaml
 
-## Get configs
-192.168.49.2
+### Create a IP Config 
+kubectl create -f minicube-ip-config.yaml
 
 ### Remove Load Balancer
 kubectl delete svc nodejs-deployment
@@ -33,3 +36,18 @@ kubectl expose deployment nodejs-deployment --type="LoadBalancer"
 
 ### Get Details
 kubectl get svc
+
+### Get the PORT Details
+minikube service nodejs-deployment
+
+### Sample Docker
+docker run -d --publish 3000:3000 bhushankumar3/kubernetes-cluster-nodejs:latest
+
+### Patch Service
+kubectl patch svc nodejs-deployment -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.168.49.1"]}}'
+kubectl patch svc kubernetes -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.168.49.1"]}}'
+
+kubectl patch svc kubernetes -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["188.34.205.172"]}}'
+kubectl patch svc nodejs-deployment -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["188.34.205.172"]}}'
+
+curl 192.168.49.1:3000

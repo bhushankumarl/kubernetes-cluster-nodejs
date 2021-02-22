@@ -14,6 +14,10 @@ spec:
         app.kubernetes.io/name: node-sample-1
     spec:
       containers:
+        - name: front-end
+          image: nginx
+          ports:
+            - containerPort: 80
         - name: node-sample
           image: bhushankumar3/kubernetes-cluster-nodejs:latest
           ports:
