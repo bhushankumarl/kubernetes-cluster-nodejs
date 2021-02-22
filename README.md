@@ -4,6 +4,9 @@
 docker tag node-server bhushankumar3/kubernetes-cluster-nodejs
 docker push bhushankumar3/kubernetes-cluster-nodejs:latest
 
+## Deploy and POD Details
+kubectl get deploy,po,svc
+
 ### Delete the deployment
 kubectl delete -f kuberbets-deploy.yaml
 
@@ -11,7 +14,7 @@ kubectl delete -f kuberbets-deploy.yaml
 kubectl create -f kuberbets-deploy.yaml
 
 ## Deploy and POD Details
-kubectl get deploy,po
+kubectl get deploy,po,svc
 
 ### Get the Minicube IP
 minikube ip
@@ -35,7 +38,7 @@ kubectl delete svc nodejs-deployment
 kubectl expose deployment nodejs-deployment --type="LoadBalancer"
 
 ### Get Details
-kubectl get svc
+kubectl get deploy,po,svc
 
 ### Get the PORT Details
 minikube service nodejs-deployment
@@ -44,10 +47,14 @@ minikube service nodejs-deployment
 docker run -d --publish 3000:3000 bhushankumar3/kubernetes-cluster-nodejs:latest
 
 ### Patch Service
-kubectl patch svc nodejs-deployment -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.168.49.1"]}}'
-kubectl patch svc kubernetes -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.168.49.1"]}}'
+kubectl patch svc nodejs-deployment -n default -p '{"spec": {"externalIPs":["192.168.49.1"]}}'
+kubectl patch svc kubernetes -n default -p '{"spec": {"externalIPs":["192.168.49.1"]}}'
 
-kubectl patch svc kubernetes -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["188.34.205.172"]}}'
-kubectl patch svc nodejs-deployment -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["188.34.205.172"]}}'
+kubectl patch svc kubernetes -n default -p '{"spec": {"externalIPs":["188.34.205.172"]}}'
+kubectl patch svc nodejs-deployment -n default -p '{"spec": {"externalIPs":["188.34.205.172"]}}'
 
 curl 192.168.49.1:3000
+
+kubectl get pod nodejs-deployment-76b74655b6-2vqrb --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
+
+kubectl port-forward nodejs-deployment-76b74655b6-2vqrb 80:80
