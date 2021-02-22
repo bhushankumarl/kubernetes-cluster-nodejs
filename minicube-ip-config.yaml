@@ -9,4 +9,4 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      - 192.168.49.2-192.168.49.5 #Update this with your Nodes IP range 
+      - 188.34.205.172-188.34.205.172 #Update this with your Nodes IP range 

@@ -7,7 +7,7 @@ docker push bhushankumar3/kubernetes-cluster-nodejs:latest
 ## Deploy and POD Details
 kubectl get deploy,po,svc
 
-### Delete the deployment
+### Remove the deployment
 kubectl delete -f kuberbets-deploy.yaml
 
 ### Create the deployment
