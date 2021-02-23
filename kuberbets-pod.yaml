@@ -4,9 +4,9 @@ metadata:
   name: nodejs-pod
   labels:
     identifier: nodejs-pod
-  spec:
-    containers:
-      - name: node-sample
-        image: bhushankumar3/kubernetes-cluster-nodejs:latest
-        ports:
-          - containerPort: 3000
+spec:
+  containers:
+    - name: node-sample
+      image: bhushankumar3/kubernetes-cluster-nodejs:latest
+      ports:
+        - containerPort: 3000
