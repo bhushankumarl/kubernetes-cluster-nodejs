@@ -4,13 +4,6 @@
 docker tag node-server bhushankumar3/kubernetes-cluster-nodejs
 docker push bhushankumar3/kubernetes-cluster-nodejs:latest
 
-## Deploy and POD Details
-kubectl get deploy,po,svc
-
-### Create the pod
-kubectl create -f kuberbets-pod.yaml
-
-
 ### Remove the deployment
 kubectl delete -f kuberbets-deploy.yaml
 
@@ -51,8 +44,8 @@ minikube service nodejs-deployment
 docker run -d --publish 3000:3000 bhushankumar3/kubernetes-cluster-nodejs:latest
 
 ### Patch Service
-kubectl patch svc nodejs-deployment -n default -p '{"spec": {"externalIPs":["192.168.49.1"]}}'
-kubectl patch svc kubernetes -n default -p '{"spec": {"externalIPs":["192.168.49.1"]}}'
+kubectl patch svc nodejs-deployment -n default -p '{"spec": {"externalIPs":["192.168.49.2"]}}'
+kubectl patch svc kubernetes -n default -p '{"spec": {"externalIPs":["192.168.49.2"]}}'
 
 kubectl patch svc kubernetes -n default -p '{"spec": {"externalIPs":["188.34.205.172"]}}'
 kubectl patch svc nodejs-deployment -n default -p '{"spec": {"externalIPs":["188.34.205.172"]}}'
