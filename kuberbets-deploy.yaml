@@ -3,21 +3,18 @@ kind: Deployment
 metadata:
   name: nodejs-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
+      identifier: nodejs-pod
       app.kubernetes.io/name: node-sample-1
   template:
     metadata:
       labels:
-        app: nodejs
+        identifier: nodejs-pod
         app.kubernetes.io/name: node-sample-1
     spec:
       containers:
-        - name: front-end
-          image: nginx
-          ports:
-            - containerPort: 80
         - name: node-sample
           image: bhushankumar3/kubernetes-cluster-nodejs:latest
           ports:
