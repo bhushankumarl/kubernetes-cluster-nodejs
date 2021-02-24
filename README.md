@@ -56,3 +56,17 @@ curl 192.168.49.1:3000
 kubectl get pod nodejs-deployment-76b74655b6-2vqrb --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
 
 kubectl port-forward nodejs-deployment-76b74655b6-2vqrb 80:80
+
+## Set the Image
+kubectl set image deployment/nodejs-deployment node-sample=bhushankumar3/kubernetes-cluster-nodejs:latest
+
+## Login into the Minikube Docker
+eval $(minikube docker-env)
+
+## NodeJS console.log/debug
+kubectl get pods
+kubectl logs nodejs-deployment-787c6b6fdb-fm2z2
+
+## Login into the container
+kubectl get pods
+kubectl exec nodejs-deployment-787c6b6fdb-fm2z2 -it sh
