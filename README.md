@@ -1,6 +1,7 @@
 # kubernetes-cluster-nodejs
 
 ### Tagging the Repos
+docker build -t node-server .
 docker tag node-server bhushankumar3/kubernetes-cluster-nodejs
 docker push bhushankumar3/kubernetes-cluster-nodejs:latest
 

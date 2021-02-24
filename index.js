@@ -6,7 +6,7 @@ app.listen(3000, function () {
 });
 
 app.get("/", (req, res) => {
-    res.send("API is up Using Kubernets. \n");
+    res.send("API is up Using Kubernets v1. \n");
 });
 
 app.get("/delete", (req, res) => {
