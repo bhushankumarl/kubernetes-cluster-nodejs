@@ -8,6 +8,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
-          service:
-            name: nodejs-service-cluster-ip
+        - path: /
+          backend:
+            serviceName: nginx-service
+            servicePort: 80 
