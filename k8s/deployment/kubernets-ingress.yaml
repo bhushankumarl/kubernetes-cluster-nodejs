@@ -10,7 +10,9 @@ spec:
     - http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: nodejs-service-cluster
-              servicePort: 3000
-    
+              service:
+                name: nodejs-service-cluster
+                port:
+                  number: 3000
