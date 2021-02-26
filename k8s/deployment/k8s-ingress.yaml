@@ -12,4 +12,5 @@ spec:
           backend:
             service:
               name: nodejs-service-cluster-ip
-              port: 3000 
+              port:
+                number: 3000 
