@@ -11,4 +11,4 @@ spec:
         - path: /
           backend:
             serviceName: nodejs-service-cluster-ip
-            servicePort: 80 
+            servicePort: 3000 
