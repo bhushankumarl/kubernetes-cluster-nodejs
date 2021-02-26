@@ -9,4 +9,5 @@ spec:
     - http:
         paths:
           - path: /
-            serviceName: nodejs-service-cluster-ip
+            service:
+              name: nodejs-service-cluster-ip
