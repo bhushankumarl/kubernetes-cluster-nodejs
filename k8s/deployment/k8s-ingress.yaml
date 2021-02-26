@@ -10,5 +10,5 @@ spec:
         paths:
         - path: /
           backend:
-            serviceName: nginx-service
+            serviceName: nodejs-service-cluster-ip
             servicePort: 80 
