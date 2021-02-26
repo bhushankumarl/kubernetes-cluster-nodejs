@@ -9,6 +9,6 @@ spec:
   rules:
     - http:
         paths:
-        - path: /
-          serviceName: nodejs-service-cluster-ip
-          servicePort: 3000
+        - path: "/"
+          serviceName: "nodejs-service-cluster-ip"
+          servicePort: "3000"
