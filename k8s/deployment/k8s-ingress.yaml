@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-        - path: /
+        - path: "/"
           backend:
             service:
               name: nodejs-service-cluster
