@@ -9,6 +9,4 @@ spec:
     - http:
         paths:
           - path: /
-            backend:
-              serviceName: nodejs-service-cluster-ip
-              servicePort: 3000
+            serviceName:nodejs-service-cluster-ip
